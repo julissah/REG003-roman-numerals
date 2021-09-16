@@ -1,6 +1,6 @@
 const { parse } = require('./src/parse');
 
-parse(5);
+parse('M');
 
 module.exports = {
     parse

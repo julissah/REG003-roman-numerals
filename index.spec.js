@@ -1,5 +1,5 @@
-const { parse, stringify } = require('./');
-
+const { parse } = require('./src/parse');
+// stringify
 const testValues = [
   [1, 'I'],
   [2, 'II'],
