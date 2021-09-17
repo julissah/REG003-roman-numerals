@@ -8,11 +8,11 @@ const romanNumeral = {
     'M' : 1000
 }
 
-const parse = (roman) => {
+const parse1 = (roman) => {
     if (typeof(roman) === 'string') {
         if (roman.length == 1) {
             if (romanNumeral[roman]) {
-                console.log(romanNumeral[roman])
+                // console.log(romanNumeral[roman])
             }
             else {
                 throw new TypeError('Unknown roman numeral');
@@ -28,7 +28,7 @@ const parse = (roman) => {
                 for (let y = 1; y < intRoman.length; y++) {                   
                     const res = intRoman[x]+intRoman[y]
                     x++
-                    console.log(res)
+                    // console.log(res)
                 }
             }
 
@@ -38,6 +38,33 @@ const parse = (roman) => {
         throw new TypeError('Not a string');
     }
 
+}
+
+const convertCharacterAInt = (roman) => {
+    switch (roman) {
+        case 'I' : return 1;
+        case 'V' : return 1;
+        case 'X' : return 1;
+        case 'L' : return 1;
+        case 'C' : return 1;
+        case 'D' : return 1;
+        case 'M' : return 1;    
+        default: return -1;
+    }
+}
+
+const parse = (roman) => {
+    if (typeof(roman) != 'string') {
+        throw new TypeError('Not a string');
+    }
+
+    let numero = convertCharacterAInt(roman.charAt(0))
+    let current;
+    let previos;
+
+    // for (let i = 1; i <= roman.length; i++) {
+
+    // }
 }
 
 const stringify = (numero) => {
