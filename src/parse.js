@@ -58,6 +58,62 @@ const parse = (roman) => {
         throw new TypeError('Not a string');
     }
 
+    const romanNumeral = {
+        'I': 1,
+        'V': 5,
+        'X' : 10,
+        'L' : 50,
+        'C' : 100,
+        'D' : 500,
+        'M' : 1000
+    }
+    // console.log(romanNumeral)
+    // console.log(Object.values(romanNumeral))
+
+    Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+
+    let filtered = Object.filter(romanNumeral, valor => valor.toString().charAt(0) == 5); 
+    
+
+        cuentaV = 0;
+        cuentaL = 0;
+        cuentaD = 0;
+
+        cuentaI = 0;
+        cuentaX = 0;
+        cuentaC = 0;
+        cuentaM = 0;
+        posicionV = roman.indexOf("V");
+        posicionL = roman.indexOf("L");
+        posicionD = roman.indexOf("D");
+
+        // posicionI = roman.indexOf("I");
+        // posicionX = roman.indexOf("X");
+        // posicionC = roman.indexOf("C");
+        // posicionM = roman.indexOf("M");
+
+        while ( posicionV != -1 || posicionL != -1 || posicionD != -1) {
+            if (posicionV != -1) {
+                cuentaV++;
+                posicionV = roman.indexOf("V" ,posicionV + 1);
+            } else if ( posicionL != -1) {
+                cuentaL++;
+                posicionL = roman.indexOf("L" ,posicionL + 1);
+            } else if ( posicionD != -1 ) {
+                cuentaD++;
+                posicionD = roman.indexOf("D" ,posicionD + 1);
+            }
+            
+        }
+        if (cuentaV > 1 || cuentaL > 1 || cuentaD > 1) {
+            throw new TypeError('Invalid repetition of number starting with 5: L (50)')
+        }       
+    
+
+
     let numero = convertCharacterAInt(roman.charAt(0))
     let current;
     let previous;

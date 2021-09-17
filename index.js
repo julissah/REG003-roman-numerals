@@ -1,7 +1,7 @@
 const { parse, stringify } = require('./src/parse');
 
-console.log(parse('XG'));
-console.log(stringify(44))
+console.log(parse('LXIIIX'));
+console.log(stringify(71))
 module.exports = {
     parse
     
