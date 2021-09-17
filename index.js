@@ -1,7 +1,8 @@
-const { parse } = require('./src/parse');
+const { parse, stringify } = require('./src/parse');
 
-parse('M');
-
+// parse('IV');
+console.log(stringify(44))
 module.exports = {
     parse
+    
 }
