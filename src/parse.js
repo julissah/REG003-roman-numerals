@@ -64,8 +64,10 @@ const parse = (roman) => {
 
     for (let i = 1; i < roman.length; ++i) {
         current = convertCharacterAInt(roman.charAt(i))
+        if (current == -1) {
+            throw new TypeError('Unknown roman numeral');
+        }
         previous = convertCharacterAInt(roman.charAt(i-1))
-        // console.log(previous)
         if (current <= previous) {
             numero += current
         } else {
