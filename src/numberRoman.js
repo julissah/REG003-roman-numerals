@@ -21,15 +21,16 @@ const validateRepeat = (roman) => {
     let value = Object.values(repeat)
     for (let r = 0; r < key.length; r++) {
         const element = key[r];
-
+        let errMsg = 'Too many repetitions of roman numeral ';
+        let errMsgStart5 = 'Invalid repetition of number starting with 5: ';
         switch (key[r]) {
-            case 'I': if (value[r] > 3) { throw new TypeError(`Too many repetitions of roman numeral ${key[r]}`)}  break;
-            case 'V': if (value[r] > 1) { throw new TypeError(`Invalid repetition of number starting with 5: ${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'X': if (value[r] > 3) { throw new TypeError(`Too many repetitions of roman numeral ${key[r]}`)} break;
-            case 'L': if (value[r] > 1) { throw new TypeError(`Invalid repetition of number starting with 5: ${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'C': if (value[r] > 3) { throw new TypeError(`Too many repetitions of roman numeral ${key[r]}`)} break;
-            case 'D': if (value[r] > 1) { throw new TypeError(`Invalid repetition of number starting with 5: ${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'M': if (value[r] > 3) { throw new TypeError(`Too many repetitions of roman numeral ${key[r]}`)} break;        
+            case 'I': if (value[r] > 3) { throw new TypeError(`${errMsg}${key[r]}`)}  break;
+            case 'V': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
+            case 'X': if (value[r] > 3) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'L': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
+            case 'C': if (value[r] > 3) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'D': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
+            case 'M': if (value[r] > 3) { throw new TypeError(`${errMsg}${key[r]}`)} break;
             default: throw new TypeError('Unknown roman numeral');
         }
     }
