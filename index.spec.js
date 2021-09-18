@@ -1,4 +1,4 @@
-const { parse, stringify } = require('./src/parse');
+const { parse, stringify } = require('./src/numberRoman');
 // stringify
 const testValues = [
   [1, 'I'],

@@ -31,7 +31,6 @@ const validateRepeat = (roman) => {
             case 'D': if (value[r] > 1) { throw new TypeError(`Invalid repetition of number starting with 5: ${key[r]} (${convertCharacterAInt(key[r])})`)} break;
             case 'M': if (value[r] > 3) { throw new TypeError(`Too many repetitions of roman numeral ${key[r]}`)} break;        
             default: throw new TypeError('Unknown roman numeral');
-                break;
         }
     }
 }

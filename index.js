@@ -1,4 +1,4 @@
-const { parse, stringify } = require('./src/parse');
+const { parse, stringify } = require('./src/numberRoman');
 
 console.log(parse('LL'));
 console.log(stringify(71))
