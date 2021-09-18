@@ -52,6 +52,9 @@ const parse = (roman) => {
         if (current <= previous) {
             numero += current;
         } else {
+            if (previous === 5 || previous === 50 || previous === 500) {
+                throw new TypeError (`Invalid substraction prefix ${roman.charAt(i-1)}`);
+            }
             numero = numero - previous * 2 + current;
         }        
     };
