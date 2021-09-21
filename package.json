@@ -8,10 +8,9 @@
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
     "jest": "^27.0.6",
     "nodemon": "^2.0.12"
   },
-  "dependencies": {
-    "eslint": "^7.32.0"
-  }
+  "dependencies": {}
 }

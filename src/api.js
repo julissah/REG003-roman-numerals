@@ -15,61 +15,51 @@ const repeatThree = (repeat, countRoman) => {
     let indices = [];
     for (const property in repeat) {    
         if(repeat[property] > 3) {
-            console.log(`${property}: ${repeat[property]}`);
             let idx = countRoman.lastIndexOf(property);
             while (idx != -1) {
                 indices.push(idx);
                 idx = (idx > 0 ? countRoman.lastIndexOf(property, idx - 1) : -1);
             }
-
         }
     }
     const sortIndice = indices.sort();
-    let cont = 0
+    let cont = 0;
     for (let r = 0; r < sortIndice.length-1; r++) {
-        console.log(sortIndice[r] + 1,',',sortIndice[r+1])
-        if ((sortIndice[r] + 1) == sortIndice[r+1]){
-            cont++
-        }
+        sortIndice[r] + 1 == sortIndice[r+1] ? cont ++  : cont;            
     }
     if (cont > 2) {
-        return true
+        return true;
     }
-    return false
+    return false;
 }
 
 const validateRepeat = (roman) => {
     const countRoman = [...roman]
-    console.log(countRoman)
     var repeat = {};
     countRoman.forEach(function(n){     
         repeat[n] = (repeat[n] || 0) + 1;
     });
-
-    console.log(repeatThree(repeat, countRoman))
-    
     let key = Object.keys(repeat)
     let value = Object.values(repeat)
     for (let r = 0; r < key.length; r++) {
-        const element = key[r];
         let errMsg = 'Too many repetitions of roman numeral ';
         let errMsgStart5 = 'Invalid repetition of number starting with 5: ';
         switch (key[r]) {
-            case 'I': if (value[r] > 3 && repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'I': if (repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
             case 'V': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'X': if (value[r] > 3 && repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'X': if (repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
             case 'L': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'C': if (value[r] > 3 && repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'C': if (repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
             case 'D': if (value[r] > 1) { throw new TypeError(`${errMsgStart5}${key[r]} (${convertCharacterAInt(key[r])})`)} break;
-            case 'M': if (value[r] > 3 && repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
+            case 'M': if (repeatThree(repeat, countRoman)) { throw new TypeError(`${errMsg}${key[r]}`)} break;
             default: throw new TypeError('Unknown roman numeral');
         }
     }
 }
 
 const isValidPosition = (roman) => {
-    const romans = ['IIV', 'IIX', 'IL', 'IC', 'ID', 'IM', 'XXL', 'XXC', 'XD', 'XM', 'IVI', 'IXI'];
-    const exist = romans.map((e) => roman.indexOf(e));
+    const numRoman = ['IIV', 'IIX', 'IL', 'IC', 'ID', 'IM', 'XXL', 'XXC', 'XD', 'XM', 'IVI', 'IXI'];
+    const exist = numRoman.map((e) => roman.indexOf(e));
     const valid = exist.every((n) => n < 0);
     return valid;
   };
@@ -85,23 +75,19 @@ const parse = (roman) => {
     let numero = convertCharacterAInt(roman.charAt(0))
     let current;
     let previous;
-    let next;
 
     for (let i = 1; i < roman.length; ++i) {
         current = convertCharacterAInt(roman.charAt(i));
-        previous = convertCharacterAInt(roman.charAt(i-1));       
-        next = convertCharacterAInt(roman.charAt(i+1));    
-        
+        previous = convertCharacterAInt(roman.charAt(i-1));           
         if (current <= previous) {
             numero += current;
         } else {
-            console.log('resta',numero,',',previous,',',current)
             if (previous === 5 || previous === 50 || previous === 500) {
                 throw new TypeError (`Invalid substraction prefix ${roman.charAt(i-1)}`);
             }             
             numero = numero - previous * 2 + current;
         }        
-    };
+    }
     return numero;
 }
 
@@ -126,6 +112,5 @@ const stringify = (numero) => {
 
 module.exports = {
     parse,
-    stringify,
-    isValidPosition
+    stringify
 }

@@ -1,8 +1,7 @@
-const { parse, stringify, isValidPosition } = require('./src/numberRoman');
+const { parse, stringify } = require('./src/api');
 
 console.log(parse('MMMCMXCIX'));
 console.log(stringify(71));
-// console.log(isValidPosition('LXIIIX'));
 module.exports = {
     parse
     
