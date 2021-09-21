@@ -64,9 +64,9 @@ const isValidPosition = (roman) => {
     return valid;
   };
 
-
-const parse = (roman) => {
-    if (typeof(roman) != 'string') throw new TypeError('Not a string');
+const parse = (nRoman) => {
+    if (typeof(nRoman) != 'string' || nRoman.length === 0) throw new TypeError('Not a string');
+    let roman = nRoman.toUpperCase();
     if (!isValidPosition(roman)) {
         throw new Error('Invalid order');
       }

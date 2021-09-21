@@ -1,8 +1,12 @@
 {
   "name": "roman-numerals",
   "version": "1.0.0",
+  "main": "src/cli.js",
+  "bin": {
+    "roman-numerals": "src/cli.js"
+  },
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/cli.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -12,5 +16,9 @@
     "jest": "^27.0.6",
     "nodemon": "^2.0.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.1.5",
+    "node-emoji": "^1.11.0"
+  }
 }
