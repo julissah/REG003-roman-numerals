@@ -1,10 +1,10 @@
+#!/usr/bin/env node
 /* eslint-disable no-case-declarations */
 'use strict';
-const { parse, stringify } = require('../src/api');
+const { parse, stringify } = require('./api');
 const inquirer = require('inquirer');
 const _ = require('lodash');
 const fuzzy = require('fuzzy');
-var color = require('colors');
 var colors = require('colors/safe');
  
 // set single property
@@ -60,7 +60,7 @@ inquirer
             emptyText: 'Nothing found!',
             default: 'help'.input,
             source: searchOption,
-            pageSize: 2,
+            pageSize: 4,
             validate: function (val) {
                 return val ? true : 'Type something!';
             },
