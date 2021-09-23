@@ -5,7 +5,7 @@ CLI - The library allows to convert `Arabic numerals` to `Roman numerals` and vi
 ## Install
 
 ```npm
-npm install -g roman-numerals
+npm i roman-numerals-convert
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ The module _exports_ an _object_ with two methods:
 Example of use:
 
 ```js
-const { parse, stringify } = require('roman-numerals');
+const { parse, stringify } = require('roman-numerals-convers');
 
 console.log(parse('I') === 1); // true
 console.log(parse('III') === 3); // true
@@ -53,7 +53,7 @@ console.log(parse(stringify(1944)) === 1944); // true
 ## CLI - Command Line Interface
 
 
-The module can be installed with the `npm install -g roman-numerals` command globally and also using the `npx` command (a tool that comes with `node` and `npm`).
+The module can be installed with the `npm i roman-numerals-convert` command globally and also using the `npx` command (a tool that comes with `node` and `npm`).
 
 This interface offers two _sub-commands_ (`parse` and `stringify`) plus options to display help (`--help`) and the module version (`--version`).
 
@@ -69,13 +69,13 @@ You can also execute directly with the `romans-numerals` command. The interface 
 
 #### Comands
 
-* `parse`: 
+* `parse`
 
 When selecting the _parse_ option you must enter the Roman numeral you wish to convert. 
 
 ![](./img/parse.svg)
 
-* `stringify`:
+* `stringify`
 
 When selecting the _stringify_ option you must enter the arabic number you want to convert.
 
