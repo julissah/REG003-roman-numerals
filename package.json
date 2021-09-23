@@ -1,6 +1,6 @@
 {
   "name": "roman-numerals-convert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI - The library allows to convert Arabic numerals to Roman numerals and vice versa.",
   "main": "src/cli.js",
   "bin": {
