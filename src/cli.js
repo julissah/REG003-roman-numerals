@@ -1,11 +1,10 @@
-#!/usr/bin/env node
 /* eslint-disable no-case-declarations */
 // 'use strict';
 const { parse, stringify } = require('./api');
 const inquirer = require('inquirer');
 const _ = require('lodash');
 const fuzzy = require('fuzzy');
-var colors = require('colors');
+const colors = require('colors');
 colors.enable();
 // colors.disable(); 
 
@@ -24,11 +23,12 @@ colors.setTheme({
 
 inquirer.registerPrompt('autocomplete', require('../index'));
 
-var option = ['parse', 'stringify', '--version', '--help'];
+let option = ['parse', 'stringify', '--version', '--help'];
  
-console.log('\n▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️'.warn)
-console.log('\t⭐️ ¡Converting Roman numerals has never been easier! ⭐️\t'.info)
-console.log('▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️\n'.warn)
+// console.log('\n▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️'.silly)
+console.log('\n--------------------------------------------------------------------------'.input)
+console.log('\t⭐️ ¡Converting Roman numerals has never been easier! ⭐️\t'.help)
+console.log('--------------------------------------------------------------------------\n'.input)
 
 function searchOption(answers, input) {
     input = input || '';
@@ -77,7 +77,18 @@ const messageHelp = () => {
     console.log('\t', Object.keys(data1[1])[0].help, '\t', data1[1]['--version'].prompt);
 }
 
-inquirer
+const callRomanNumeral = () => {
+    inquirer.prompt({
+        type: 'confirm',
+        name: 'confirm',
+        message: 'Do you want to continue?'.info
+    })
+    .then(answers => {
+        (answers.confirm == true) ? romanNumeral() : console.log('\nthanks!🤍\n'.help,'\n--------------------------------------------------------------------------'.input);  
+    })
+}
+const romanNumeral = () => {
+    inquirer
     .prompt([
         {
             type: 'autocomplete',
@@ -105,7 +116,8 @@ inquirer
                 })
                     .then(answers => {
                         let valueParse = Object.values(answers)[0];
-                        console.log(parse(valueParse));
+                        console.log(`  ${parse(valueParse)}`.warn);
+                        callRomanNumeral();
                     })
                     .catch((error) => {
                         console.error(`${error}`);
@@ -119,20 +131,28 @@ inquirer
                 })
                 .then(answers => {
                     let valueParse = Object.values(answers)[0];
-                    console.log(stringify(valueParse).warn);
+                    console.log(`  ${stringify(valueParse)}`.warn);
+                    callRomanNumeral();
                 })
                 .catch((error) => {
                      console.error(`${error}`);
                 });
                 break;
             case '--help':
-                messageHelp()
+                messageHelp();
+                callRomanNumeral();
                 break;
             case '--version':
-                console.log('1.0.0'.warn);
+                console.log('  1.0.2'.warn);
+                callRomanNumeral();
                 break;
             default:
-                messageHelp()
+                messageHelp();
+                callRomanNumeral();
                 break;
         }
     });
+}
+
+
+module.exports = { romanNumeral }

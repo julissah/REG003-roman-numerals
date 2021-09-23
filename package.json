@@ -1,11 +1,13 @@
 {
-  "name": "roman-numerals",
-  "version": "1.0.1",
+  "name": "roman-numerals-convert",
+  "version": "1.0.2",
   "description": "CLI - The library allows to convert Arabic numerals to Roman numerals and vice versa.",
   "main": "src/cli.js",
-  "bin": "src/cli.js",
+  "bin": {
+    "roman-numerals": "bin/global.js"
+  },
   "scripts": {
-    "start": "node src/cli.js",
+    "start": "node bin/global.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -34,8 +36,8 @@
     "jest",
     "eslint"
   ],
-  "author": "Julissa Huaman",
-  "license": "ISC",
+  "author": "Julissa Huaman Hilari",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/julissah/REG003-roman-numerals/issues"
   },
