@@ -92,6 +92,6 @@ When selecting the _stringify_ option you must enter the arabic number you want 
 
 ## Install - NPM
 
-You can download the package [NPM](https://opensource.org/licenses/MIT).
+You can download the package [NPM](https://www.npmjs.com/package/roman-numerals-convert).
 ## License
-roman-numerals is released under the [MIT License](https://www.npmjs.com/package/roman-numerals-convert).
+roman-numerals is released under the [MIT License](https://opensource.org/licenses/MIT).
