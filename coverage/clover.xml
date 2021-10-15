@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632269939100" clover="3.2.0">
-  <project timestamp="1632269939101" name="All files">
+<coverage generated="1634227865884" clover="3.2.0">
+  <project timestamp="1634227865884" name="All files">
     <metrics statements="78" coveredstatements="77" conditionals="63" coveredconditionals="57" methods="9" coveredmethods="9" elements="150" coveredelements="143" complexity="0" loc="78" ncloc="78" packages="1" files="1" classes="1"/>
     <file name="api.js" path="C:\Users\Laboratoria\Documents\GitHub\REG003-roman-numerals\src\api.js">
       <metrics statements="78" coveredstatements="77" conditionals="63" coveredconditionals="57" methods="9" coveredmethods="9"/>
