@@ -142,7 +142,7 @@ const romanNumeral = () => {
                 callRomanNumeral();
                 break;
             case '--version':
-                console.log('  1.0.4'.warn);
+                console.log('  1.0.5'.warn);
                 callRomanNumeral();
                 break;
             default:

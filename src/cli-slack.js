@@ -67,10 +67,10 @@ const romanNumeralSlack = () => {
                 (myArgs.length === 1) ? console.info('Debe ingresar el número entero que desea convertir'): console.log(stringify(parseInt(myArgs[1])));
                 break;
             case '--v':
-                console.log('1.0.4');
+                console.log('1.0.5');
                 break;
             case '--version':
-                console.log('1.0.4');
+                console.log('1.0.5');
                 break;
             case '--h':
                 messageHelp();
