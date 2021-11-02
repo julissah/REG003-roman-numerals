@@ -29,7 +29,7 @@ The module _exports_ an _object_ with two methods:
 Example of use:
 
 ```js
-const { parse, stringify } = require('roman-numerals-convers');
+const { parse, stringify } = require('roman-numerals-convert');
 
 console.log(parse('I') === 1); // true
 console.log(parse('III') === 3); // true

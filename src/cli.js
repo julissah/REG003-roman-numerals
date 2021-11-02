@@ -25,10 +25,9 @@ inquirer.registerPrompt('autocomplete', require('../index'));
 
 let option = ['parse', 'stringify', '--version', '--help'];
  
-// console.log('\n▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️▫️▪️'.silly)
-console.log('\n--------------------------------------------------------------------------'.input)
-console.log('\t⭐️ ¡Converting Roman numerals has never been easier! ⭐️\t'.help)
-console.log('--------------------------------------------------------------------------\n'.input)
+console.log('\n--------------------------------------------------------------------------------------'.input)
+console.log('\t\t⭐️ ¡Converting Roman numerals has never been easier! ⭐️\t'.help)
+console.log('--------------------------------------------------------------------------------------\n'.input)
 
 function searchOption(answers, input) {
     input = input || '';
@@ -46,7 +45,7 @@ function searchOption(answers, input) {
 
 const messageHelp = () => {
     let rep = {
-        "Usage:": "roman-numerals",
+        "Usage:": "roman-numerals-convert",
         "Commands:": [
             {
                 "parse <input>": "Parse a roman numeral string into an integer."
@@ -71,7 +70,7 @@ const messageHelp = () => {
     console.log('\n', key[0].underline.green, value[0].help);
     console.log('\n', key[1].underline.green);
     console.log('\t', Object.keys(data[0])[0].help, '\t\t', data[0]['parse <input>'].prompt);
-    console.log('\t', Object.keys(data[1])[0].help, '\t', data[1]['stringify <input>'].prompt,'\n');
+    console.log('\t', Object.keys(data[1])[0].help, '\t', data[1]['stringify <input>'].prompt);
     console.log('\n', key[2].underline.green);       
     console.log('\t', Object.keys(data1[0])[0].help, '\t', data1[0]['--help'].prompt);
     console.log('\t', Object.keys(data1[1])[0].help, '\t', data1[1]['--version'].prompt);
@@ -84,7 +83,7 @@ const callRomanNumeral = () => {
         message: 'Do you want to continue?'.info
     })
     .then(answers => {
-        (answers.confirm == true) ? romanNumeral() : console.log('\nthanks!🤍\n'.help,'\n--------------------------------------------------------------------------'.input);  
+        (answers.confirm == true) ? romanNumeral() : console.log('\nthanks!🤍'.help,'\n--------------------------------------------------------------------------------------'.input);  
     })
 }
 const romanNumeral = () => {
@@ -143,7 +142,7 @@ const romanNumeral = () => {
                 callRomanNumeral();
                 break;
             case '--version':
-                console.log('  1.0.2'.warn);
+                console.log('  1.0.4'.warn);
                 callRomanNumeral();
                 break;
             default:
