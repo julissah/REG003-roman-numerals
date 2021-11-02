@@ -8,7 +8,7 @@
     "roman-numerals": "bin/slack.js"
   },
   "scripts": {
-    "start": "node bin/global.js",
+    "start": "node bin/slack.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
