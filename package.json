@@ -2,7 +2,7 @@
   "name": "roman-numerals-convert",
   "version": "1.0.4",
   "description": "CLI - The library allows to convert Arabic numerals to Roman numerals and vice versa.",
-  "main": "src/cli.js",
+  "main": "src/api.js",
   "bin": {
     "roman-numerals-convert": "bin/global.js",
     "roman-numerals": "bin/slack.js"
