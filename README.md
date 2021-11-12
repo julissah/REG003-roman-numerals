@@ -2,6 +2,10 @@
 
 CLI - The library allows to convert `Arabic numerals` to `Roman numerals` and vice versa.
 
+
+## Architecture
+![](./img/arquitectura.svg)
+
 ## Install
 
 ```npm
@@ -11,7 +15,7 @@ npm i roman-numerals-convert
 ## Usage
 
 ```bash
-roman-numerals
+roman-numerals-convert
 ```
 
 ## Demo
