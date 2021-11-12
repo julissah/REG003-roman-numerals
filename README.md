@@ -2,10 +2,6 @@
 
 CLI - The library allows to convert `Arabic numerals` to `Roman numerals` and vice versa.
 
-
-## Architecture
-![](./img/arquitectura.svg)
-
 ## Install
 
 ```npm
